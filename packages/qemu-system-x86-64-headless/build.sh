@@ -50,14 +50,6 @@ termux_step_configure() {
 
 	# System emulation.
 	QEMU_TARGETS+="aarch64-softmmu,"
-	QEMU_TARGETS+="arm-softmmu,"
-	QEMU_TARGETS+="i386-softmmu,"
-	QEMU_TARGETS+="m68k-softmmu,"
-	QEMU_TARGETS+="ppc64-softmmu,"
-	QEMU_TARGETS+="ppc-softmmu,"
-	QEMU_TARGETS+="riscv32-softmmu,"
-	QEMU_TARGETS+="riscv64-softmmu,"
-	QEMU_TARGETS+="x86_64-softmmu,"
 
 	# User mode emulation.
 	QEMU_TARGETS+="aarch64-linux-user,"
@@ -128,7 +120,7 @@ termux_step_configure() {
 		--enable-usb-redir \
 		--disable-vhost-user \
 		--disable-vhost-user-blk-server \
-		--target-list="$QEMU_TARGETS"
+		--target-list="$QEMU_TARGETS" --static
 }
 
 termux_step_post_make_install() {
